@@ -2,7 +2,7 @@ export default {
   preset: "ts-jest",
   testEnvironment: "node",
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/src/$1",
+    "^(\\.{1,2}/.*)\\.js$": "$1",
   },
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
@@ -12,4 +12,10 @@ export default {
   collectCoverage: true,
   coverageDirectory: "coverage",
   coverageReporters: ["html", "text"],
+  extensionsToTreatAsEsm: [".ts"],
+  globals: {
+    "ts-jest": {
+      useESM: true,
+    },
+  },
 };

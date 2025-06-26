@@ -4,13 +4,13 @@ import { testClass } from "../sample.js";
  * [正常系]
  * testClass
  */
-describe("[正常系]testMethodを戻り値を取得できる", () => {
-  it("nullを渡すとtrueを返す", () => {
+describe("[正常系]testMethodの戻り値を取得できる", () => {
+  it("testMethodの戻り値を取得できる", async () => {
     // given 前提条件
     const expectedMessage = "testMethod!";
     // when 実行
     const result = new testClass();
     // then 結果
-    expect(result.testMethod()).toBe(expectedMessage);
+    expect(await result.testMethod()).toBe(expectedMessage);
   });
 });
