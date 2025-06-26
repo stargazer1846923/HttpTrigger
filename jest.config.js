@@ -1,17 +1,12 @@
 export default {
-  preset: "ts-jest/presets/default-esm",
   testEnvironment: "node",
+  setupFiles: ["dotenv/config"],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
     "^(\\.{1,2}/.*)\\.js$": "$1",
   },
   transform: {
-    "^.+\\.(ts|tsx)$": [
-      "ts-jest",
-      {
-        useESM: true,
-      },
-    ],
+    "^.+\\.(ts|tsx)$": ["babel-jest", { configFile: "./babel.config.cjs" }],
   },
   clearMocks: true,
   testMatch: ["**/src/**/__tests__/**/*.(spec|test).[jt]s?(x)"],
