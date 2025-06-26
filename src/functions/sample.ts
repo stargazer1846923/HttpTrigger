@@ -8,10 +8,9 @@ class testClass {
 
   async testMethod() {
     console.log("testMethod called");
-    const currentFileName = fileURLToPath(import.meta.url);
-    const currentDirName = dirname(currentFileName);
+    console.log(import.meta.filename);
 
-    return currentDirName + " " + process.env.TEST;
+    return import.meta.dirname + " " + process.env.TEST;
   }
 }
 
