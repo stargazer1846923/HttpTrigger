@@ -1,3 +1,6 @@
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
 class testClass {
   constructor() {
     console.log("testClass constructor called");
@@ -5,7 +8,10 @@ class testClass {
 
   async testMethod() {
     console.log("testMethod called");
-    return "testMethod!";
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = dirname(__filename);
+
+    return __dirname + " " + __filename;
   }
 }
 
